@@ -1,4 +1,4 @@
-// Agrega un manejador de eventos al contenedor de la lista de usuarios
+
 document.getElementById('user-list-3').addEventListener('click', function(event) {
     // Verifica si se hizo clic en un botón de xmark
     if (event.target.classList.contains('btn-xmark')) {

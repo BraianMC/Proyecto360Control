@@ -70,21 +70,3 @@ document.getElementById('confirmarProyecto').addEventListener('click', function(
 });
 
 
-// function obtenerDatosUsuariosPrincipal() {
-//     var datosUsuariosPrincipal = [];
-//     var listadoPrincipal = document.getElementById('user-list-1').getElementsByTagName('li');
-
-//     for (var i = 0; i < listadoPrincipal.length; i++) {
-//         // var usuario = listadoPrincipal[i].getElementsByTagName('span')[0].textContent;
-//         // var rol = listadoPrincipal[i].getElementsByTagName('span')[1].textContent;
-//         var usuario = listadoPrincipal[i].querySelector('span:first-child').textContent;
-//         var rol = listadoPrincipal[i].querySelector('span:last-child').textContent;
-//         console.log("usuario:", usuario, "rol:", rol);
-//         datosUsuariosPrincipal.push({
-//             usuario: usuario,
-//             rol: rol
-//         });
-//     }
-
-//     return datosUsuariosPrincipal;
-// }

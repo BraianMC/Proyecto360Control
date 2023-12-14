@@ -9,16 +9,6 @@ tablesConfirmationResponsible.forEach(function(tabla) {
     tabla.addEventListener('click', function (event) {
         var target = event.target;
 
-        // // Verificar si el clic fue en un ícono específico
-        // if (target.classList.contains('btn-responsible')) 
-        // {
-        //     var Iditem = target.getAttribute('data-id');
-        //     var confirmBtnResponsible = document.getElementById('asign-responsible');
-        //     confirmBtnResponsible.addEventListener('click', function ()
-        //     {
-        //         AsignarResponsable(Iditem);
-        //     });
-        // } 
         if (target.classList.contains('btn-responsible')) {
             // Almacenar el Iditem temporalmente
             currentIdItem = target.getAttribute('data-id');

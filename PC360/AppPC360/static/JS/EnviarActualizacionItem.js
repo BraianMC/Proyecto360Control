@@ -27,7 +27,7 @@ btnUpdate.addEventListener('click', function () {
 
 function RealizarModificacionItem(idItem) {
     
-    // Obtener información del proyecto y del listado
+    // Obtener información del item
     var new_name_item = document.getElementById('name-item-update').value;
     var option_select_tipo = document.getElementById('select-tipo-update').value;
     var option_select_prioridad = document.getElementById('select-prioridad-update').value;

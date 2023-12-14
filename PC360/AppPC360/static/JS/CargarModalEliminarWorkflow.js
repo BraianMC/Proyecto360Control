@@ -8,10 +8,10 @@ botonEliminarWk.forEach((button) => {
     button.addEventListener('click', (event) => {
         event.stopPropagation();
 
-        // Obtener el nombre del proyecto
+        // Obtener el nombre del workflow
         const nombreWk = button.closest('tr').querySelector('.workflow-name').textContent;
 
-        // Mostrar el nombre del proyecto en el modal
+        // Mostrar el nombre del workflow en el modal
         nombreWorkflow.textContent = `¿Quiere borrar el workflow: ${nombreWk}?`;
     });
 });

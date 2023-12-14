@@ -8,10 +8,10 @@ botonEliminarTipo.forEach((button) => {
     button.addEventListener('click', (event) => {
         event.stopPropagation();
 
-        // Obtener el nombre del proyecto
+        // Obtener el nombre del tipo
         const nTipo = button.closest('tr').querySelector('.tipo-name').textContent;
 
-        // Mostrar el nombre del proyecto en el modal
+        // Mostrar el nombre del tipo en el modal
         nombreTipo.textContent = `¿Quiere borrar el tipo: ${nTipo}?`;
     });
 });

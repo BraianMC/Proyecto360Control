@@ -14,7 +14,7 @@ for (var i = 0; i < botonesPencilmu.length; i++)
 
 
 document.getElementById('ActualizarUsuario').addEventListener('click', function() {
-    // Obtener información del proyecto y del listado
+    
     var new_username = document.getElementById('user-name-update').value;
     var new_password = document.getElementById('password-update').value;
     var new_confirmPassword = document.getElementById('confirm-password-update').value;
@@ -44,7 +44,7 @@ document.getElementById('ActualizarUsuario').addEventListener('click', function(
 
     if (new_password === new_confirmPassword) 
     {
-        // Realizar la solicitud AJAX para confirmar el proyecto
+        
         var xhrmu = new XMLHttpRequest();
         xhrmu.open('POST', '/Modificar-usuario/'+ IdUser +'/', true);
         xhrmu.setRequestHeader('Content-Type', 'application/json');

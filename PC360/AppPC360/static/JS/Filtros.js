@@ -37,7 +37,7 @@ if (containerFilter)
                                 filasVisibles.add(fila);
                                 break;
                             case 'por terminar':
-                                // Ocultar filas donde el estado sea "final"
+                                // Ocultar filas donde el estado sea "Terminado"
                                 fila.style.display = estadoActual.includes('terminado') ? 'none' : 'table-row';
                                 if (fila.style.display === 'table-row') 
                                 {
@@ -45,7 +45,7 @@ if (containerFilter)
                                 }
                                 break;
                             case 'terminados':
-                                // Ocultar filas donde el estado no sea "final"
+                                // Ocultar filas donde el estado no sea "Terminado"
                                 fila.style.display = estadoActual.includes('terminado') ? 'table-row' : 'none';
                                 if (fila.style.display === 'table-row') 
                                 {

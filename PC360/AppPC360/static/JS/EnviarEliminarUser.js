@@ -39,7 +39,7 @@ botonTrasheu.addEventListener('click', () => {
                 }
 
                 location.reload();
-                // Puedes manejar la respuesta o redirigir si es necesario
+                
             } else {
                 console.error('Error al eliminar el usuario:', xhreu.statusText);
             }

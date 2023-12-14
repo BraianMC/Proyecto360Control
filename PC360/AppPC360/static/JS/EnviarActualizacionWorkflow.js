@@ -17,7 +17,6 @@ document.getElementById('ActualizarWorkflow').addEventListener('click', function
     
     var nombreWorkflow = document.getElementById('nombreWorkflow').value;
     
-    // Realizar la solicitud AJAX para confirmar el proyecto
     var xhrup = new XMLHttpRequest();
     xhrup.open('POST', '/Modificar-workflow/'+ IdSeleccionado +'/', true);
     xhrup.setRequestHeader('Content-Type', 'application/json');
@@ -26,7 +25,7 @@ document.getElementById('ActualizarWorkflow').addEventListener('click', function
     var csrf_tokenup = document.getElementsByName('csrfmiddlewaretoken')[0].value;
     xhrup.setRequestHeader('X-CSRFToken', csrf_tokenup);
 
-    // Obtener el listado de usuarios del modal principal
+    //Obtener listado de estados
     var listStatesup = obtenerDatosUsuariosPrincipal();
 
     var datosup= {
@@ -60,7 +59,7 @@ document.getElementById('ActualizarWorkflow').addEventListener('click', function
     xhrup.send(datosJSONup);
 });
 
-// Función para obtener el listado de usuarios del modal principal
+// Función para obtener el listado de estados del modal principal
 function obtenerDatosUsuariosPrincipal() {
     var nombresEstados = [];
     var listStatesAsignated = document.getElementById('user-list-3').getElementsByTagName('li');

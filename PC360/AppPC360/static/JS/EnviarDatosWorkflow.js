@@ -19,7 +19,6 @@ document.getElementById('confirmarWorkflow').addEventListener('click', function(
     }
 
 
-    // Realizar la solicitud AJAX para confirmar el proyecto
     var xhrwe = new XMLHttpRequest();
     xhrwe.open('POST', '/Crear-workflow/', true);
     xhrwe.setRequestHeader('Content-Type', 'application/json');
@@ -51,7 +50,7 @@ document.getElementById('confirmarWorkflow').addEventListener('click', function(
     xhrwe.send(datosJSONwe);
 });
 
-// Función para obtener el listado de usuarios del modal principal
+// Función para obtener estados del modal principal
 function obtenerEstadosWorkflow() {
     var datosWorkflow = [];
     var listadoDatos = document.getElementById('states').getElementsByTagName('li');

@@ -14,7 +14,6 @@ for (var i = 0; i < botonesPencilmt.length; i++)
 
 
 document.getElementById('ActualizarTipo').addEventListener('click', function() {
-    // Obtener información del proyecto y del listado
     
     
     var xhrmt = new XMLHttpRequest();

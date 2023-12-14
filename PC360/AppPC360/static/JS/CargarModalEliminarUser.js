@@ -7,10 +7,10 @@ botonDeleteUser.forEach((button) => {
     button.addEventListener('click', (event) => {
         event.stopPropagation();
 
-        // Obtener el nombre del proyecto
+        // Obtener el nombre del user
         const nombreUser = button.closest('tr').querySelector('.user-name').textContent;
 
-        // Mostrar el nombre del proyecto en el modal
+        // Mostrar el nombre del user en el modal
         txtModalDelete.textContent = `¿Quiere borrar el usuario: ${nombreUser}?`;
     });
 });

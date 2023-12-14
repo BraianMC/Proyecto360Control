@@ -48,13 +48,12 @@ function cargarActividadItem(item_ID) {
                     <span>${actividad.fecha}</span>
                 `;
 
-                // Agregar el contenido al contenedor y el contenedor al documento
+                
                 listadoActividad.appendChild(divContent);
             
             });
 
-            // Mostrar el modal de modificación
-            // document.getElementById('modal-modificar-proyecto').style.display = 'block';
+        
         } else {
             console.error('Error en la solicitud AJAX:', xhrActividad.statusText);
         }

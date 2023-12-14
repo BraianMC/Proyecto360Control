@@ -33,7 +33,7 @@ botonTrash.addEventListener('click', () => {
                 var response = JSON.parse(xhr.responseText);
                 alert(response.mensaje);
                 location.reload();
-                // Puedes manejar la respuesta o redirigir si es necesario
+                
             } else {
                 console.error('Error al eliminar el proyecto:', xhr.statusText);
             }

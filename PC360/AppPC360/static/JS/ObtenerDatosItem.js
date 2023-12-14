@@ -28,7 +28,7 @@ function cargarDatosItem(itemId) {
             
             // Llenar el nombre del item
             document.getElementById('name-item-update').value = data.nombre_item;
-            //Preseleccionar la opcion en tipos
+            //Cargar descripcion
             document.getElementById('description-2').value = data.descripcion;
 
             
