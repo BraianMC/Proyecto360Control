@@ -419,8 +419,8 @@ h2
 .hidden-text
 {
     display: none;
-    width: auto;
     max-width: 450px;
+    white-space: normal;
     height: auto;
     position: absolute;
     background-color: #3b66b6;
