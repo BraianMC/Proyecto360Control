@@ -1,0 +1,103 @@
+{% extends "BaseListado.html" %}
+
+{% block styles %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Css/StyleListadoUsuarios.css' %}">
+{% endblock %}
+
+{% block title %}Usuarios{% endblock %}
+
+
+{% block header %}Usuarios{% endblock %}
+
+{% block user_content %} {{username}} {% endblock %}
+
+{% block btn-content%}Crear usuario{%endblock%}
+
+{% block list %}
+    {% if usuarios %}
+        {% for usuario in usuarios %}
+            <tr>
+                <td class="user-name">{{usuario.username}}</td>
+                <td>
+                    <i class="fa-solid fa-pencil btn-pencil" data-id="{{ usuario.id }}"></i>
+                    <i class="fa-solid fa-trash-can btn-delete" data-id="{{ usuario.id }}"></i>
+                </td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td colspan="2">No hay usuarios</td>
+        </tr>
+    {% endif %}    
+{% endblock %}
+
+
+
+
+
+{% block modal-content-1 %}
+{% csrf_token %}
+<label for="" class="lbl-name">Nombre del usuario</label>
+<input type="text" placeholder="Ej:Usuario90" id="username" required>
+<p class="error-message-username" id="error-username"></p>
+
+
+<label for="" class="lbl-name">Contraseña:</label>
+<div class="container-password">
+    <input type="password" placeholder="Ej:Contraseña" id="password" class="input-user" required>
+    <button class="button-eye"><i class="fa-solid fa-eye icon-eye"></i></button>
+</div>
+<p class="error-message-password" id="error-password"></p>
+
+
+<label for="confirm-password" class="lbl-name">Confirmar Contraseña:</label>
+<div class="container-password">
+    <input type="password" id="confirm-password" name="confirm-password" class="input-user" required>
+    <button class="button-eye"><i class="fa-solid fa-eye icon-eye"></i></button>
+</div>
+<p class="error-message-confirm" id="error-confirm"></p>
+
+<button type="submit" class="btn-create-user" id="crear-usuario">Crear usuario</button>
+
+<script src="../static/JS/CrearUsuario.js"></script>
+{% endblock %}
+
+
+{% block modal-content-2 %}
+<label for="" class="lbl-name">Nombre del usuario</label>
+<input type="text" placeholder="Ej:Usuario90" id="user-name-update">
+<p class="error-message-username" id="error-username-1"></p>
+
+<label for="" class="lbl-name">Contraseña:</label>
+<div class="container-password">
+    <input type="password" placeholder="Ej:Contraseña" id="password-update" class="input-user">
+    <button class="button-eye"><i class="fa-solid fa-eye icon-eye"></i></button>
+</div>
+<p class="error-message-password" id="error-password-1"></p>
+
+<label for="confirm-password" class="lbl-name">Confirmar Contraseña:</label>
+<div class="container-password">
+    <input type="password" id="confirm-password-update" name="confirm-password"  class="input-user" required>
+    <button class="button-eye"><i class="fa-solid fa-eye icon-eye"></i></button>
+</div>
+<p class="error-message-confirm" id="error-confirm-1"></p>
+
+<button type="submit" class="btn-create-user" id="ActualizarUsuario">Guardar usuario</button>
+
+<script src="../static/JS/CargarModalModificarUser.js"></script>
+<script src="../static/JS/EnviarActualizacionUser.js"></script>
+<script src="../static/JS/MostrarContraseña.js"></script>
+{% endblock %}
+
+{% block modal-option%}
+<p class="name-modal-delete"></p>
+<div class="container-button">
+    <button class="btn-trash">Eliminar</button>
+    <button class="btn-cancel" id="btn-cancel">Cancelar</button>
+</div>
+<script src="../static/JS/CargarModalEliminarUser.js"></script>
+<script src="../static/JS/EnviarEliminarUser.js"></script>
+<script src="../static/JS/ModalEliminar.js"></script>
+{% endblock %}

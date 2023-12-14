@@ -1,0 +1,74 @@
+.btn-create-user
+{
+    background-color: #2fc436;
+    color: #fff;
+    width: 190px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #1f5f1d;
+    cursor: pointer;
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+.error-message-username, .error-message-password, .error-message-confirm
+{
+    color: #f82e2e;
+    font-size: 13px;
+    font-weight: bold;
+    width:200px;
+    height: 5px;
+    display: block;
+}
+
+.error-message-username
+{
+    margin-top: -18px;
+    margin-left: 40px;
+    padding-bottom: 15px;
+}
+
+.error-message-password
+{
+    margin-left: 40px;
+    margin-top: -15px;
+    padding-bottom: 15px;
+    width: 350px;
+}
+
+.error-message-confirm
+{
+    margin-top: -15px;
+    margin-left: 40px;
+    width: 350px;
+}
+
+.container-password
+{
+    width: 140px;
+    display: flex;
+    margin-left: 45px;
+    height: 42px;
+    margin-bottom: 15px;
+}
+
+.input-user
+{
+    width: 190px;
+    border-radius: 0;
+}
+
+.icon-eye
+{
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+}
+
+.button-eye
+{
+    padding: 5px;
+    background-color: rgb(32, 52, 75);
+    border-radius: 4px;
+    border: 1px solid #fff;
+}

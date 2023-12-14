@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b2985c5115.js" crossorigin="anonymous"></script>
+    {% block styles %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Css/StyleBaseListado.css' %}">
+    {% endblock %}
+    <title>{%block title%} {% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>{% block header %}{% endblock %}</h1>
+        <div class="action">
+            <div class="profile" id="profile">
+                
+            </div>
+            <div class="menu">
+                <h3>
+                    Cuenta de usuario
+                    <div id="user-content">{% block user_content %}{% endblock %}</div>
+                </h3>
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-right-from-bracket icon-size"></i>
+                        <a href="{% url 'cerrar-sesion' %}">Salir</a>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+        <input type="checkbox" id="check">
+        <label for="check">
+            <i class="fa-solid fa-bars" id="btn"></i>
+            <i class="fa-solid fa-xmark" id="cancel"></i>
+        </label>
+        <div class="sidebar">      
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="{% url 'administracion' %}">Panel de administracion</a></li>
+                <li><a href="{% url 'proyectos' %}">Proyectos</a></li>
+                <li><a href="{% url 'workflows' %}">Workflows</a></li>
+                <li><a href="{% url 'tipos' %}">Tipos</a></li>
+                <li><a href="{% url 'usuarios' %}">Usuarios</a></li>
+            </ul>
+        </div>
+    
+    </header>
+    <div class="container">
+        <div class="container-btn-input">
+            <input type="text" class="search-box" id="inputBusqueda" placeholder="Buscar.." onkeyup="buscar()">
+            {% block button %}
+                <button  class="button-create-project" id="open-modal">{% block btn-content%}{%endblock%}</button>
+            {% endblock %}
+        </div>
+        
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaCuerpo">
+                    {% block list %}
+                    
+                    {% endblock %}
+                </tbody>
+            </table>
+        </div>
+        <script src="../static/JS/Buscador.js"></script>
+    </div>
+    
+    <div class="modal" id="mimodal">
+        <div class="modal-content">
+        {% block modal-content-1 %}
+            
+        {% endblock %}
+        </div>
+    </div>
+
+    <div class="modal-2" id="modalTipos">
+        <div class="modal-content modal-update" id="modal-content">
+        {% block modal-content-2 %}
+            
+        {% endblock %}
+        </div>
+    </div>
+
+    <!-- modal para eliminar o ver  -->
+    <div class="modal-3" id="modal-delete">
+        <div class="modal-content-delete">
+            {% block modal-option%}
+
+            {% endblock %}
+        </div>
+    </div>
+    
+
+    
+    <script src="../static/JS/ModalCrear.js"></script>
+    <script src="../static/JS/ModalModificar.js"></script>
+    <script src="../static/JS/PerfilUsuario.js"></script>
+    <script src="../static/JS/DibujarInicialNombre.js"></script>
+</body>
+</html>

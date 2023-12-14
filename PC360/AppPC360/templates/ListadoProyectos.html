@@ -1,0 +1,189 @@
+{% extends "BaseListado.html" %}
+
+{% block styles %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Css/StyleListadoProyectos.css' %}">
+{% endblock %}
+
+
+{%block title%}Proyectos{%endblock%}
+
+
+{% block header %}Proyectos{% endblock %}
+
+{% block user_content %} {{username}} {% endblock %}
+
+
+{% block button %}
+<button  class="button-create-project" id="open-modal">Crear proyecto</button>
+{% endblock %}
+
+
+
+
+{% block modal-content-1 %}
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="" class="lbl-name-project" >Nombre del proyecto:</label>
+    <input type="text" placeholder="Ej: Proyecto X" id="nombreProyecto">
+    <p id="error-name-project" class="error-message-name"></p>
+
+    <button class="btn-add-user" id="modal-add-user" type="button">Agregar usuario</button>
+
+    <div class="container-select container-select-2">
+        <div class="select-btn">
+            <span class="btn-text">Usuarios Asignados:</span>
+            <span class="arrow-dwn" id="show-users-1">
+                <i class="fa-solid fa-chevron-down"></i>
+            </span>
+        </div>
+
+        <ul class="list-items-1" id="user-list-1">
+            <!-- Se crean los elementos de forma dinamica -->
+        </ul>
+        <p id="error-users" class="error-message-users"></p>
+    </div>
+    
+
+    <button class="btn-create btn-create-2" id="confirmarProyecto" type="button">Confirmar</button>
+</form>
+
+<!-- Modal para agregar usuario al proyecto -->
+<div class="modal-user" id="modal-user">
+    <div class="modal-content-user">
+        
+        <label for="" class="lbl-name-user">Elija el user:</label>
+        <select name="usuario_seleccionado" id="selectUsuarios" class="select-1">
+            <option value=""></option>
+        </select>
+        
+        <label for="" class="lbl-name-user">Elija el rol:</label>
+        <select name="rol_seleccionado" id="selectRoles" class="select-2">
+            <option value="Lider Tecnico">Lider Tecnico</option>
+            <option value="Lider Funcional">Lider Funcional</option>
+            <option value="Desarrollador">Desarrollador</option>
+            <option value="Analista de calidad">Analista de calidad</option>
+            <option value="Representante de cliente">Representante de cliente</option>
+        </select>
+        
+        <button type="button" class="btn-save-user" onclick="agregarUsuario()">Guardar usuario</button>
+    </div>
+</div>
+
+<script src="../static/JS/ModalAgregarUsuario_1.js"></script>
+<script src="../static/JS/MostrarUsuariosAgregar.js"></script>
+<script src="../static/JS/SolicitudUsuariosProyecto.js"></script>
+<script src="../static/JS/AgregarUsuario.js"></script>
+<script src="../static/JS/EnviarDatosProyecto.js"></script>
+{% endblock %}
+
+
+{% block list %}
+{% if proyectos %}
+    {% for proyecto in proyectos %}
+    <tr>
+        <td class="project-name">{{ proyecto.name }}</td> 
+        <td>
+            <i class="fa-solid fa-pencil btn-pencil" data-id="{{ proyecto.id }}"></i>
+            <i class="fa-solid fa-trash-can btn-delete" data-id="{{ proyecto.id }}"></i>
+        </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <tr>
+        <td colspan="2">No hay proyectos</td>
+    </tr>
+{% endif %}
+
+{% endblock %}
+
+{% block modal-content-2 %}
+<form id="formulario-modificar-proyecto" method="post">
+    {% csrf_token %}
+    <label for="" class="lbl-name-project">Nombre del proyecto</label>
+    <input type="text" id="nombreProyecto-2">
+
+    <button class="btn-add-user-2" id="modal-add-user-2" type="button">Agregar usuario</button>
+    
+    <div class="container-select">
+        <div class="select-btn" >
+            <span class="btn-text">Usuarios asignados</span>
+            <span class="arrow-dwn" id="show-users-2">
+                <i class="fa-solid fa-chevron-down"></i>
+            </span>
+        </div>
+      
+        <ul class="list-items-2" id="user-list-2">
+            <!-- Se crean los elementos de forma dinamica -->
+        </ul>
+    </div>
+
+    <button class="btn-update-project" type="button" id="ActualizarProyecto">Guardar cambios</button>
+</form>
+
+<!-- Modal para agregar usuario al proyecto -->
+<div class="modal-user" id="modal-user-2">
+    <div class="modal-content-user content-upuser">
+        
+        <label for="" class="lbl-name-user">Elija el user:</label>
+        <select name="" id="selectUsuarios-1" class="select-1">
+            
+        </select>
+        
+        
+        <label for="" class="lbl-name-user">Elija el rol:</label>
+        <select name="" id="selectRoles-1" class="select-2">
+            <option value="Lider Tecnico">Lider Tecnico</option>
+            <option value="Lider Funcional">Lider Funcional</option>
+            <option value="Desarrollador">Desarrollador</option>
+            <option value="Analista de calidad">Analista de calidad</option>
+            <option value="Representante de cliente">Representante de cliente</option>
+        </select>
+        
+        <button type="submit" class="btn-save-user" onclick="agregarUsuarioModificar()">Guardar usuario</button>
+    </div>
+</div>
+
+
+<!-- Contenido del modal para modificar usuario -->
+<div class="container-modal-user" id="container-modal-user">
+    <div class="content-update-user">
+        <label for="" class="lbl-name-user">Elija el usuario:</label>
+        <select name="" id="selectUsuarios-3" class="select-1">
+            <!-- Se crean los elementos de forma dinamica -->
+        </select>
+
+        <label for="" class="lbl-name-user">Elija el rol:</label>
+        <select name="" id="selectRoles-3" class="select-2">
+            <option value="Lider Tecnico">Lider Tecnico</option>
+            <option value="Lider Funcional">Lider Funcional</option>
+            <option value="Desarrollador">Desarrollador</option>
+            <option value="Analista de calidad">Analista de calidad</option>
+            <option value="Representante de cliente">Representante de cliente</option>
+        </select>
+        <button type="button" class="btn-save-user">Guardar usuario</button>
+    </div>
+</div>
+
+
+<script src="../static/JS/MostrarUsuariosModificar.js"></script>
+<script src="../static/JS/ModalAgregarUsuario_2.js"></script>
+<script src="../static/JS/ObtenerDatosProyecto.js"></script>
+<script src="../static/JS/ObtenerUsuarios.js"></script>
+<script src="../static/JS/AgregarUsuarioModificar.js"></script>
+<script src="../static/JS/BorrarUsuarioListado.js"></script>
+<script src="../static/JS/EnviarActualizacionProyecto.js"></script>
+{% endblock %}
+
+
+{% block modal-option%}
+<p class="name-modal-delete"></p>
+<div class="container-button">
+    <button class="btn-trash">Eliminar</button>
+    <button class="btn-cancel" id="btn-cancel">Cancelar</button>
+</div>
+<script src="../static/JS/CargarModalEliminar.js"></script>
+<script src="../static/JS/EnviarEliminarProyecto.js"></script>
+<script src="../static/JS/ModalEliminar.js"></script>
+{% endblock %}

@@ -1,0 +1,226 @@
+/* Estilos para el modal modificar proyecto */
+
+
+.modal-user, .container-modal-user
+{
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.modal-user.modal-open-user
+{
+    display: block;
+}
+
+
+.container-modal-user.open-update-user
+{
+    display: block;
+}
+
+.modal-content-user, .content-update-user
+{
+    padding: 20px;
+    width: 330px;
+    height: 250px;
+    margin: auto;
+    margin-top: 150px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 3px 4px 5px 4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 3px 4px 5px 4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 4px 5px 4px rgba(0,0,0,0.75);
+}
+
+.modal-content-user
+{
+    background: #283c86;
+    border: 3px solid #142049;
+}
+
+.content-upuser
+{
+    background: #eea12d;
+    border: 3px solid #ce7b00;
+}
+
+.lbl-name-project, .lbl-name-user
+{
+    color: #fff;
+    margin-left: 40px;
+    padding: 5px;
+    font-size: 18px;
+}
+
+
+.select-1, .select-2, .lbl-name-user
+{
+    display: block;
+    margin-top: 5px;
+}
+
+.lbl-name-user
+{
+    margin-left: 65px;
+}
+
+.select-1, .select-2
+{
+    width: 180px;
+    padding: 10px;
+    font-size: 18px;
+    margin-left: 70px;
+}
+
+.btn-pencil-2
+{
+    color: #ff9b04;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.btn-xmark
+{
+    color: #ca2020;
+    font-size: 20px;
+    cursor: pointer;
+    /* position: relative; */
+    margin-left: 20px;
+}
+
+.list-items-2 li {
+    display: flex;
+    /* justify-content: space-between; */
+    /* align-items: center; */
+}
+.list-items-2 .icon-container {
+    display: flex;
+    margin-left: auto;
+    margin-right: 5px;
+}
+
+.list-items-2 .fa-rectangle-xmark {
+    margin-left: auto;
+}
+
+.list-items-2 .fa-solid {
+    margin-left: 5px; /* Ajusta el margen según sea necesario */
+}
+
+
+
+.btn-update-2
+{
+    margin-left: 3px;
+}
+
+.btn-update-project
+{
+    padding: 10px;
+    font-size: 16px;
+    background-color: #0ab342;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    left: 90px;
+    margin-top: 170px;
+    border: 1px solid #0ab342;
+    border-radius: 6px;
+    width: 180px;
+}
+
+.btn-update-project:hover
+{
+    background-color: #2abd5b;
+}
+
+
+.btn-save-user
+{
+    padding: 10px;
+    font-size: 16px;
+    background-color: #36e46a;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    left: 90px;
+    margin-top: 25px;
+    border: 1px solid #0ab342;
+    border-radius: 6px;
+    width: 180px;
+}
+
+.btn-save-user:hover
+{
+    background-color: #6cc988;
+}
+
+
+
+/* Estilos para modal crear proyecto */
+.btn-add-user, .btn-add-user-2
+{
+    padding: 10px;
+    font-size: 16px;
+    background-color: #2b94bd;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 70px;
+    border: 1px solid #e9f0eb;
+    border-radius: 6px;
+    width: 180px;
+}
+
+.btn-add-user
+{
+    margin-top: 15px;
+}
+
+.btn-add-user-2
+{
+    margin-top: 5px;
+}
+
+.btn-create-2
+{
+    margin-top: 120px;
+    margin-left: 70px;
+}
+
+.modal-update
+{
+    background: #eea12d;  /* fallback for old browsers */
+    border: 3px solid #ce7b00;
+}
+
+.error-message-name, .error-message-users
+{
+    color: #f82e2e;
+    font-size: 13px;
+    font-weight: bold;
+    /* background-color: #0E1119; */
+    width:200px;
+    height: 5px;
+    display: block;
+}
+
+.error-message-name
+{
+    margin-top: -18px;
+    margin-left: 40px;
+}
+
+.content-span
+{
+    font-weight: bold;
+    font-size: 13px;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <script src="https://kit.fontawesome.com/b2985c5115.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'Css/StyleAdmin.css' %}">
+    <title>Administracion</title>
+</head>
+<body>
+    <header>
+        <h1>Administracion</h1>
+        <div class="action">
+            <div class="profile" id="profile">
+                
+            </div>
+            <div class="menu">
+                <h3>
+                    Cuenta de usuario
+                    <div id="user-content">{{ username }}</div>
+                </h3>
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-right-from-bracket icon-size"></i>
+                        <a href="{% url 'cerrar-sesion' %}">Salir</a>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-menu">
+        <div class="enlace enlace-superior-izquierda">
+            <div class="icono-div">
+                <i class="fa-solid fa-folder-open icon-admin"></i>
+                <a href="{% url 'proyectos' %}">Proyectos</a>
+            </div>
+        </div>
+        <div class="enlace enlace-superior-derecha">
+            <div class="icono-div">
+                <i class="fa-solid fa-sitemap icon-admin"></i>
+                <a href="{% url 'workflows' %}">Workflows</a>
+            </div>
+        </div>
+        <div class="enlace enlace-inferior-izquierda">
+            <div class="icono-div">
+                <i class="fa-solid fa-window-restore icon-admin"></i>
+                <a href="{% url 'tipos' %}">Tipos</a>
+            </div>
+        </div>
+        <div class="enlace enlace-inferior-derecha">
+            <div class="icono-div">
+                <i class="fa-solid fa-users icon-admin"></i>
+                <a href="{% url 'usuarios' %}">Usuarios</a>
+            </div>
+        </div>
+    </div>
+    <script src="../static/JS/PerfilUsuario.js"></script>
+    <script src="../static/JS/DibujarInicialNombre.js"></script>
+</body>
+</html>

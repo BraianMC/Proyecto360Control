@@ -1,0 +1,92 @@
+.label-nombre,.lbl-workflow
+{
+    /* display: block; */
+    color: #fff;
+    text-align: left;
+    margin-left: 50px;
+    margin-bottom: 15px;
+    margin-top: 50px;
+}
+
+select 
+{
+    /* Reset Select */
+    outline: 10px red;
+    border: 1px solid rgb(86, 65, 204);
+    box-shadow: none;
+    /* Personalize */
+    flex: 1;
+    padding: 0 1em;
+    background-image: none;
+    cursor: pointer;
+}
+  
+.select 
+{
+    position: relative;
+    width: 250px;
+    height: 40px;
+    border-radius: .25em;
+    overflow: hidden;
+    margin-left: 40px;
+    font-size: 18px;
+    color: #0e0d0d;
+    border-color: 2px solid #2252aa70
+}
+
+ 
+
+
+option
+{
+    padding: 10px;
+}
+
+
+.contenido-modal
+{
+    margin-top: 20px;
+}
+
+.btn-create-type
+{
+    padding: 10px;
+    font-size: 16px;
+    background-color: #19c753;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    left: 90px;
+    margin-top: 120px;
+    border: 1px solid #0ab342;
+    border-radius: 6px;
+    width: 180px;
+}
+
+.btn-create-type:hover
+{
+    background-color: #41cc70;
+}
+
+.error-message-name, .error-message-workflow
+{
+    color: #f82e2e;
+    font-size: 13px;
+    font-weight: bold;
+    width:200px;
+    height: 5px;
+    display: block;
+}
+
+.error-message-name
+{
+    margin-top: -18px;
+    margin-left: 40px;
+    padding-bottom: 16px;
+}
+
+.error-message-workflow
+{
+    margin-left: 40px;
+}
+

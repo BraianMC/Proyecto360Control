@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b2985c5115.js" crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Css/StyleHome.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Russo+One&display=swap" rel="stylesheet">
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        <h1>Proyecto360Control</h1>
+        <div class="action">
+            <div class="profile" id="profile">
+                
+            </div>
+            <div class="menu">
+                <h3>
+                    Cuenta de usuario
+                    <div id="user-content">{{ username }}</div>
+                </h3>
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-right-from-bracket icon-size"></i>
+                        <a href="{% url 'cerrar-sesion' %}">Salir</a>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Proyectos del usuario separados por rol -->
+    <div class="container">
+        <div class="title-table"><h3>Proyectos separados por rol:</h3></div>
+        <ul class="responsive-table">
+            {% if roles %}
+                {% for rol in roles %}
+                    <li class="table-row">
+                        <div class="col col-1" data-label="Job Id"><a href="{% url 'proyectos-rol-user' rol=rol %}" class="link-projects">Proyectos con rol: {{rol}}</a></div>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <li>No tiene proyectos asignados</li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <script src="../static/JS/PerfilUsuario.js"></script>
+    <script src="../static/JS/DibujarInicialNombre.js"></script>
+</body>
+</html>

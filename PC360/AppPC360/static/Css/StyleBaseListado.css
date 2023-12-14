@@ -1,0 +1,1064 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Mono:ital,wght@1,600&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body 
+{
+	font-family: "Montserrat";
+	font-weight: 400;
+    background-color: #20251f;
+}
+
+header
+{
+    background: #093028;
+    height: 80px;
+}
+/* Estilos del menu user */
+.action
+{
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    
+}
+
+.action .profile
+{
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 60px;
+    overflow: hidden;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    color: #257236;
+    border: 3px solid #257236;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold; /* Hace que el texto sea más grueso */
+    font-size: 28px;
+}
+
+.action .profile img
+{
+    width: 100%;
+    top: 0;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    height: 100%;
+}
+
+.action .menu
+{
+    background-color: #fff;
+    box-sizing: 0 5px 25px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    padding: 10px 15px;
+    position: absolute;
+    right: -5px;
+    width: 160px;
+    transition: 0.5s;
+    top: 100px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.action .menu.active
+{
+    opacity: 1;
+    top: 80px;
+    visibility: visible;
+}
+
+.action .menu::before
+{
+    background-color: #fff;
+    content: '';
+    height: 20px;
+    position: absolute;
+    right: 30px;
+    transform: rotate(45deg);
+    top: -5px;
+    width: 20px;
+}
+
+.action .menu h3
+{
+    color: #161515;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3em;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.action .menu h3 div
+{
+    color: #131111;
+    font-size: 14px;
+    font-weight: 400;
+}
+.action .menu ul
+{
+    display: flex;
+    flex-direction: column;
+    /* esto fue clave  */
+    align-items: start;
+    padding: 0;
+    margin: 0;
+}
+.action .menu ul li
+{
+    align-items: center;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 10px 25px;
+    
+}
+
+
+.action .menu ul li img
+{
+    max-width: 40px;
+    margin-right: 30px;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+.icon-size
+{
+    color: #127a1b;
+}
+
+.action .menu ul li a
+{
+    display: inline-block;
+    color: #181616;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.action .menu ul li:hover img
+{
+    opacity: 1;
+}
+
+.action .menu ul li:hover a
+{
+    color: #220cec;
+}
+
+
+
+/* Estilos del sidebar */
+.sidebar
+{
+  position: fixed;
+  left: -250px;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background: #212122;
+  transition: all .5s ease;
+}
+
+h2
+{
+  font-size: 22px;
+  color: #fff;
+  text-align: center;
+  line-height: 70px;
+  background: #0a0a0a;
+  user-select: none;
+}
+
+.sidebar ul a
+{
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 90px;
+  color: #fff;
+  padding-left: 40px;
+  /* border-top: 1px solid #ffffff1a; */
+  transition: .4s;
+  text-decoration: none;
+}
+
+.sidebar ul li
+{
+    border-top: 1px solid #ffffff1a;
+}
+.sidebar ul a:visited
+{
+  background: #5c6eac;
+}
+
+#check
+{
+  display: none;
+}
+
+label #btn, label #cancel
+{
+  position: absolute;
+  cursor: pointer;
+  /* background: #042331; */
+  border-radius: 3px;
+}
+
+label #btn
+{
+  left: 40px;
+  top: 25px;
+  font-size: 25px;
+  color: #fff;
+  padding: 6px 10px;
+  transition: all .5s;
+}
+
+
+
+label #cancel
+{
+  z-index: 1111;
+  left: -195px;
+  top: 17px;
+  font-size: 30px;
+  color: #fff;
+  padding: 4px 9px;
+  transition: all .5s;
+ 
+}
+
+#check:checked ~ .sidebar
+{
+  left: 0;
+}
+
+#check:checked ~ label #btn
+{
+  left: 250px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#check:checked ~ label #cancel
+{
+  left: 195px;
+  opacity: 1;
+}
+
+
+ul li:hover a
+{
+  padding-left: 50px; 
+}
+
+/* ---------------------------------- */
+
+h1
+{
+    color: #fff;
+    font-size: 30px;
+    position: relative;
+    top: 25px;
+    margin-left: 90px;
+}
+
+.container 
+{
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.button-create-project
+{
+    background-color: #298a4e;
+    color: #fff;
+    border: 1px solid #fcfcfc;
+    padding: 10px;
+    border-radius: 4px;
+    /* margin-left: 610px; */
+    font-size: 17px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.button-extendido
+{
+    background-color: aqua;  
+}
+
+.button-create-project:hover
+{
+    background-color: #828cbe;
+}
+
+.modal, .modal-2, .modal-3
+{
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+
+.modal-work
+{
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content
+{
+    background: #283c86;  /* fallback for old browsers */
+    padding: 20px;
+    width: 330px;
+    height: 330px;
+    margin: auto;
+    margin-top: 120px;
+    border-radius: 10px;
+    border: 3px solid #182257;
+    position: relative;
+    z-index: 2;
+    box-shadow: 3px 4px 5px 4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 3px 4px 5px 4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 4px 5px 4px rgba(0,0,0,0.75);
+}
+
+/* modal para los tipos */
+.modal-content-delete
+{
+    background: #8E0E00;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #1F1C18, #8E0E00);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #1F1C18, #8E0E00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 20px;
+    width: 300px;
+    height: 90px;
+    margin: auto;
+    margin-top: 110px;
+    border-radius: 4px;
+    border: 1px solid #d63126;
+    -webkit-box-shadow: -1px 2px 13px 3px rgb(52, 52, 54);
+    -moz-box-shadow: -1px 2px 13px 3px rgb(46, 46, 53);
+    box-shadow: -1px 2px 13px 3px rgb(45, 45, 49);
+}
+
+.modal-content-option p
+{
+    color: #fff;
+}
+
+.container-button
+{
+    margin-left: 120px;
+    margin-top: 30px;
+    width: auto;
+    /* background-color: #000; */
+}
+
+.container-button .btn-trash, .btn-cancel
+{
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.container-button .btn-trash
+{
+    background-color: #f13514;
+}
+.btn-trash:hover
+{
+    background-color:#eb573d ;
+}
+.container-button .btn-cancel
+{
+    background-color: #fac000;
+}
+
+.btn-cancel:hover
+{
+    background-color: #e7c247;
+}
+
+/* Para mostra las opciones para elegir workflow en la creacion de tipos */
+.menu-works
+{
+    position: absolute;
+    margin-left: 60px;
+    width: 200px;
+}
+
+.options-container
+{
+    background-color: #2e9751;
+    width: 180px;
+    border-radius: 5px;
+    position: absolute;
+    color: #fff;
+    margin-top: 7px;
+    z-index: 3;
+    padding: 10px;
+    display: block;
+}
+
+.options-container.hidden
+{
+    display: block;
+}
+
+.options-container .options {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.options-container .options li {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.options-container .options .option {
+    width: 170px;
+    padding: 8px;
+    cursor: pointer;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.options-container .options .sub-options {
+    list-style: none;
+    background-color: #192eca;
+    border-radius: 5px;
+    width: 100%; /* Ocupa el ancho disponible */
+    position: absolute;
+    margin-top: 30px;
+    display: none;
+    /* z-index: 4; */
+
+}
+
+.options-container .options .type-states
+{
+    width: 100px;
+    position: relative;
+    background-color: #102ec2;
+    display: none;
+}
+
+
+.options-container .options .type-states.show
+{
+    display: block;
+}
+
+ul
+{
+    list-style: none;
+}
+/* -------------- */
+
+/* Modal para ver miembros del proyecto */
+.modal-members
+{
+    display: none;
+    width: 200px;
+    height: 130px;
+    background-color: #332f53;
+    border-radius: 10px;
+    position: absolute;
+    margin-top: 10px;
+    border: 2px solid #1131d1;
+    transition: margin-top 0.3s ease-in-out;
+    text-align: center;
+}
+
+.modal-members.open-mb
+{
+    display: block;
+}
+
+.modal-members h4
+{
+    color: #fff;
+    padding: 5px;
+}
+
+.modal-members ul
+{
+    text-align: left;
+    padding: 10px;
+    list-style: none;
+    max-height: 80px;
+    overflow-y: auto;
+}
+
+.modal-members ul::-webkit-scrollbar {
+    width: 5px; /* Grosor de la barra de desplazamiento */
+}
+
+.modal-members ul::-webkit-scrollbar-thumb {
+    background-color: #3e97eb; /* Cambiar el color de la barra de desplazamiento */
+}
+
+.modal-members ul li
+{
+    padding: 3px;
+}
+
+.modal-members ul li input[type = "checkbox"]
+{
+    transform: scale(1.5);
+}
+
+
+
+.btn-check
+{
+    position: relative;
+    left: 27px;
+    color: #10ec5a;
+}
+
+.btn-check
+{
+    cursor: pointer;
+}
+
+/* modal de estados */
+.btn-view-states
+{
+    padding: 10px;
+    width: 170px;
+    background-color: #f39924;
+    color: #fff;
+    position: absolute;
+    margin-top: 65px;
+    margin-left: 75px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #fa8e00;
+}
+
+.btn-view-states:hover
+{
+    background-color: #e2a656;
+}
+
+
+.states
+{
+    background-color: #fff;
+    color: #131212;
+    width: 180px;
+    height: auto;
+    position: absolute;
+    display: none;
+    margin-left: 60px;
+    margin-top: 110px;
+    text-align: left;
+    border-radius: 8px;
+    padding: 5px 5px 5px 15px;
+    font-size: 16px;
+    z-index: 2;
+    border: 2px solid #f58f09;
+}
+
+.states ul
+{
+    list-style: none;
+    font-weight: bold;
+}
+
+.states.openStates
+{
+    display: block;
+}
+
+/* Modal para workflow */
+.modal-workflow
+{
+    width: 310px;
+    height: 320px;
+    margin: auto;
+    margin-top: 140px;
+    border-radius: 4px;
+    background-color: #1836bd;
+}
+/*  */
+
+/* modal para proyectos */
+.modal-content .name-type, .modal-content input
+{
+    display: block;
+    text-align: left;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+
+.modal-content input, .modal-content .name-type
+{
+    padding: 10px;
+    font-size: 17px;
+}
+
+.modal-content input
+{
+    /* width: 230px; */
+    border-radius: 5px;
+    border: 1px solid #102ec2;
+}
+
+.modal-content .name-type
+{
+    position: relative;
+    left: 35px;
+    /* color: #bfe70c; */
+}
+
+.container-select
+{
+    position: absolute;
+    max-width: 250px;
+    width: 100%;
+    left: 60px;
+    top: 170px;
+    z-index: 1;
+}
+
+.container-select ul
+{
+    text-align: left;
+    padding: 10px;
+    list-style: none;
+    max-height: 80px;
+}
+
+
+
+.select-btn
+{
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.select-btn .btn-text
+{
+    font-size: 17px;
+    font-weight: 400;
+    color: #333;
+}
+
+.select-btn .arrow-dwn
+{
+    display: flex;
+    height: 21px;
+    width: 21px;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 50%;
+    background-color: #6e93f7;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.select-btn.open .arrow-dwn
+{
+    transform: rotate(-180deg);
+}
+
+.list-items-1, .list-items-2
+{
+    position: relative;
+    margin-top: 15px;
+    border-radius: 8px;
+    padding: 5px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    overflow-y: auto;
+}
+
+
+
+.list-items-1.open-users-1
+{
+    display: block;
+}
+.list-items-2.open-users-2
+{
+    display: block;
+}
+
+.select-btn.open ~ .list-items
+{
+    display: block;
+}
+
+.list-items .item
+{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    height: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0 10px;
+    border-radius: 8px;
+}
+
+.list-items .item:hover
+{
+    background-color: #e7edfe;
+}
+
+.user-template
+{
+    display: none;
+}
+
+
+.item .item-text
+{
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    margin-right: 8px;
+    /* display: inline; */
+}
+
+.item .checkbox
+{
+    /* height: 16px; */
+    width: 15px;
+    border-radius: 4px;
+    margin-right: 8px;
+    margin-left: 10px;
+    border: 1.5px solid #c0c0c0;
+    transition: all 0.3s ease-in-out;
+}
+
+.item.cerrar
+{
+    display: none;
+}
+.item.checked .checkbox
+{
+    background-color: #4070f4;
+    border-color: #4070f4;
+}
+
+.checkbox .check-icon
+{
+    font-size: 11px;
+    transform: scale(0);
+    transition: all 0.3s ease-in-out;
+}
+
+.item.checked .check-icon
+{
+    transform: scale(1);
+}
+
+.btn-create
+{
+    padding: 10px;
+    font-size: 16px;
+    background-color: #19c753;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    margin-top: 115px;
+    margin-left: 70px;
+    border: 1px solid #0ab342;
+    border-radius: 6px;
+    width: 180px;
+}
+
+
+
+.btn-create:hover
+{
+    background-color: #40c46c;
+}
+
+/* Estilos del modal para crear tipo */
+
+.btn-select-work
+{
+    background-color: #fff;
+    border-color: #102ec2;
+    padding: 10px;
+    border-radius: 5px;
+}
+.btn-workflow
+{
+    padding: 10px;
+    font-size: 16px;
+    color: #000;
+    cursor: pointer;
+    width: 200px;
+}
+
+/* estilo para el boton de crear workflow */
+.btn-state
+{
+    padding: 10px;
+    font-size: 16px;
+    background-color: #56cf6a;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    margin-top: 6px;
+    margin-left: 75px;
+    border: 1px solid #0ab342;
+    border-radius: 6px;
+    width: 170px;
+}
+
+.btn-state:hover
+{
+    background-color: #7acf88;
+}
+
+input:focus
+{
+    outline-color: #3d63ca;
+}
+
+.lbl-name
+{
+    color: #fff;
+    text-align: center;
+    margin-left: 45px;
+    font-size: 16px;
+}
+.modal.modal-open
+{
+    display: block;
+}
+
+.modal-2.abrirmodal
+{
+    display: block;
+}
+
+.modal-3.open-modal-3
+{
+    display: block;
+}
+
+.modal-work.open
+{
+    display: block;
+}
+
+.modal-option.openDelete
+{
+    display: block;
+}
+
+.table-scroll
+{
+    max-height: 250px;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.table-scroll::-webkit-scrollbar {
+    width: 14px; /* Ancho de la barra de desplazamiento */
+}
+.table-scroll::-webkit-scrollbar-thumb {
+    background-color: #302a2a; /* Color del pulgar de la barra de desplazamiento */
+    border-radius: 8px;
+}
+.table-scroll::-webkit-scrollbar-track {
+    background-color: rgb(99, 84, 84); /* Color de la pista de la barra de desplazamiento */
+}
+
+table 
+{
+	width: 700px;
+	border-collapse: collapse;
+	overflow: hidden;
+	
+    border-radius: 3px;
+}
+
+
+th, td 
+{
+	padding: 15px;
+	
+
+	color: #fff;
+}
+
+th:first-child, td:first-child {
+    text-align: left;
+}
+th:last-child, td:last-child {
+    width: 80px; /* Ancho fijo para la segunda columna */
+    padding-right: 50px;
+}
+
+th:last-child
+{
+    text-align: left;
+}
+
+td:last-child
+{
+    text-align: left;
+}
+
+td
+{
+    border-top: 1px solid #656566;
+}
+tr
+{
+    background: #093028;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #237A57, #093028);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #237A57, #093028); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+thead th 
+{
+    background-color: #0f0f0f;
+}
+
+
+.button-info
+{
+    background-color: #102ec2;
+    color: #fff;
+    width: 90px;
+    height: 26px;
+    border: 1px solid #d9dbe4;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* estilo de boton para los tipos */
+.button-delete
+{
+    background-color: #f13514;
+    color: #fff;
+    width: 90px;
+    height: 26px;
+    border: 1px solid #fc2803;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.button-delete:hover
+{
+    background-color: #ee5c42;
+}
+/* ---------------- */
+.button-info:hover
+{
+    background-color: #4256bb;
+}
+
+.btn-delete, .btn-pencil, .btn-eye
+{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.btn-delete
+{
+    color: #ec2416;
+    margin-left: 7px;
+}
+
+
+.btn-pencil
+{
+    color: #ff9b04;
+    margin-left: 5px;
+}
+
+.btn-eye
+{
+    color: #092ee6;
+}
+
+.container-btn-input
+{
+    margin-left: 310px;
+}
+
+.search-box
+{
+    font-size: 18px;
+    border: 1px solid #29974a;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.search-box:focus
+{
+    border: 1px solid #0ab342;
+}
+
+.name-modal-delete
+{
+    color: #fff;
+    font-size: 15px;
+}
+

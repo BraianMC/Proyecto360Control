@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Mono:ital,wght@1,600&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font-family: "Montserrat";
+    font-weight: 400;
+    background: #111111;
+}
+
+/* Estilos del encabezado de la pagina */
+header
+{
+    background: #182848;
+    height: 100px;
+}
+
+.initial-user
+{
+    border:1px solid #000; 
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+h1
+{
+    color: #fff;
+    font-size: 45px;
+    position: absolute;
+    left: 30px;
+    top: 15px;
+    font-family: 'Beau Rivage', cursive;
+}
+
+.icon-size
+{
+    color: #e71d1d;
+    font-size: 14px;
+}
+
+.action
+{
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    
+}
+
+.action .profile
+{
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 60px;
+    overflow: hidden;
+    right: 15px;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: #5776c9;
+    color: #fff;
+    display: flex;
+    border: 3px solid #fff;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold; 
+    font-size: 28px;
+}
+
+.action .profile img
+{
+    width: 100%;
+    top: 0;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    height: 100%;
+}
+
+.action .menu
+{
+    background-color: #fff;
+    box-sizing: 0 5px 25px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    padding: 10px 15px;
+    position: absolute;
+    right: -5px;
+    width: 160px;
+    transition: 0.5s;
+    top: 100px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.action .menu.active
+{
+    opacity: 1;
+    top: 80px;
+    visibility: visible;
+}
+
+.action .menu::before
+{
+    background-color: #fff;
+    content: '';
+    height: 20px;
+    position: absolute;
+    right: 30px;
+    transform: rotate(45deg);
+    top: -5px;
+    width: 20px;
+}
+
+.action .menu h3
+{
+    color: #0c0c0c;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3em;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.action .menu h3 div
+{
+    color: #114ae7;
+    font-size: 16px;
+    font-weight: bold;
+}
+.action .menu ul
+{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 0;
+    margin: 0;
+}
+.action .menu ul li
+{
+    align-items: center;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 10px 25px;
+    
+}
+
+
+.action .menu ul li img
+{
+    max-width: 40px;
+    margin-right: 30px;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+.action .menu ul li a
+{
+    display: inline-block;
+    color: #0c0c0c;
+    font-size: 14px;
+    font-weight: bold;
+    padding-left: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.action .menu ul li:hover img
+{
+    opacity: 1;
+}
+
+.action .menu ul li:hover a
+{
+    color: #220cec;
+}
+
+/* Empiezan los estilos de la tabla de los proyectos del usuario separado por rol */
+.container 
+{
+    background-color: #fff;
+    max-width: 700px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #6C7A89;
+    -webkit-box-shadow: -1px 2px 13px 3px rgba(66, 68, 90, 1);
+    -moz-box-shadow: -1px 2px 13px 3px rgba(66, 68, 90, 1);
+    box-shadow: -1px 2px 13px 3px rgba(66, 68, 90, 1);
+}
+
+.title-table
+{
+    padding: 5px;
+}
+
+h3
+{
+    color: #141313;
+    font-weight: bold;
+}
+.responsive-table
+{
+    /* background-color: #252627; */
+    overflow: auto;
+    max-height: 200px;
+    border-radius: 9px;
+    border: 2px solid #1f82df;
+    /* background-color: #6C7A89; */
+}
+
+.responsive-table::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento */
+}
+
+.responsive-table::-webkit-scrollbar-thumb {
+    background-color: #f6f8f6; 
+    border-radius: 8px; 
+}
+
+h2 
+{
+    font-size: 26px;
+    margin: 20px 0;
+    text-align: center;
+    small {
+      font-size: 0.5em;
+    }
+}
+  
+
+li 
+{
+    border-radius: 5px;
+    padding: 13px 13px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.table-header 
+{
+    background-color: #95A5A6;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.table-row 
+{
+    background: #4b6cb7;  
+    background: -webkit-linear-gradient(to right, #182848, #4b6cb7);  
+    background: linear-gradient(to right, #182848, #4b6cb7); 
+
+    box-shadow: 0px 0px 9px 0px rgba(73, 72, 72, 0.4);
+    color: #fff;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+.link-projects
+{
+    color: #fff;
+    font-weight: bold;
+}
+
+.link-projects:hover
+{
+    color: #1f82df;
+}
+
+.col-1 
+{
+    flex-basis: 10%;
+    white-space: nowrap;
+    padding-left: 10px;
+}
+
+.col-2 
+{
+    flex-basis: 40%;
+}
+
+.col-3 
+{
+    flex-basis: 25%;
+}
+
+.col-4 
+{
+    flex-basis: 25%;
+}
+    
+@media all and (max-width: 767px) 
+{
+    .table-header 
+    {
+        display: none;
+    }
+    .table-row
+    {
+        background-color: #ffffff;
+        box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+    }
+    li 
+    {
+        display: block;
+    }
+    .col 
+    {
+        flex-basis: 100%;
+        
+    }
+    .col 
+    {
+        display: flex;
+        padding: 10px 0;
+        &:before 
+        {
+            color: #6C7A89;
+            padding-right: 10px;
+            content: attr(data-label);
+            flex-basis: 50%;
+            text-align: right;
+        }
+    }
+}

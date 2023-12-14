@@ -1,0 +1,100 @@
+{% extends "BaseListado.html" %}
+
+{% block styles %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Css/StyleListadoTipos.css' %}">
+{% endblock %}
+
+
+{%block title%}Tipos{%endblock%}
+
+
+{% block header %}Tipos{% endblock %}
+
+{% block user_content %} {{username}} {% endblock %}
+
+{% block btn-content%}Crear tipo{%endblock%}
+
+
+{% block list %}
+    {% if tipos %}
+        {% for tipo in tipos %}
+        <tr>
+            <td class="tipo-name">{{ tipo.name }}</td>
+            <td>
+                <i class="fa-solid fa-pencil btn-pencil" id="open-modificar" data-id="{{ tipo.id }}"></i>
+                <i class="fa-solid fa-trash-can btn-delete" data-id="{{ tipo.id }}"></i>
+            </td>
+        </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td colspan="2">No hay tipos</td>
+        </tr>
+    {% endif %}
+    
+{% endblock %}
+
+
+{% block modal-content-1 %}
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="" class="label-nombre">Nombre del Tipo</label>
+    <input type="text" placeholder="Ej:Tipo 10" id="name-type">
+    <p class="error-message-name" id="error-name"></p>
+    <label for="" class="label-nombre">Seleccione un workflow</label>
+    <select name="" id="workflowSelect" class="select">
+        <option value="">Seleccione</option>
+    </select>
+    <p class="error-message-workflow" id="error-workflow"></p>
+    <button class="btn-create-type" type="button" id="CrearTipo">Crear tipo</button>
+</form>
+
+<script src="../static/JS/ObtenerWorkflows.js"></script>
+<script src="../static/JS/AgregarTipo.js"></script>
+{% endblock %}
+
+
+
+{% block modal-content-2 %}
+<form id="formulario-modificar" method="post">
+    {% csrf_token %}
+    <label for="" class="lbl-name">Nombre del Tipo</label>
+    <input type="text" placeholder="Ej:Tipo 10" id="name-type-2">
+    <select name="" id="workflowSelect-2" class="select">
+        <option value="">Seleccione un workflow</option>
+    </select>
+    <button class="btn-create-type" type="button" id="ActualizarTipo">Guardar cambios</button>
+</form>
+
+
+<script src="../static/JS/CargarModificarTipo.js"></script>
+<script src="../static/JS/EnviarActualizacionTipo.js"></script>
+{% endblock %}
+
+
+
+
+{% block btn-td %}
+    <button class="button-delete" id="button-delete">Eliminar</button>
+{% endblock %}
+
+
+{% block modal-option %}
+
+    <form id="formulario-eliminar" method="post">
+        {% csrf_token %}
+        <p class="name-modal-delete"></p>
+        <div class="container-button">    
+            <button class="btn-trash" type="button">Eliminar</button>
+            <button class="btn-cancel" id="btn-cancel" type="button">Cancelar</button>
+        </div>
+    </form>
+
+
+<script src="../static/JS/CargarModalEliminarTipo.js"></script>
+<script src="../static/JS/EnviarEliminarTipo.js"></script>
+<script src="../static/JS/ModalEliminar.js"></script>
+{% endblock %}
+

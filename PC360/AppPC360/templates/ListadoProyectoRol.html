@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b2985c5115.js" crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Css/StyleListadoProyectoRol.css' %}">
+    <title>Proyectos</title>
+</head>
+<body>
+    <header>
+      <a href="{% url 'proyectos-rol' %}"><i class="fa-solid fa-arrow-left-long arrow-back"></i></a>
+      <h2>Proyectos con rol: {{ rol }}</h2>
+      <div class="action">
+        <div class="profile" id="profile">
+            
+        </div>
+        <div class="menu">
+            <h3>
+                Cuenta de usuario
+                <div id="user-content">{{ username }}</div>
+            </h3>
+            <ul>
+                <li>
+                    <i class="fa-solid fa-right-from-bracket icon-size"></i>
+                    <a href="{% url 'cerrar-sesion' %}">Salir</a>
+                </li> 
+            </ul>
+        </div>
+    </div>
+    </header>
+
+    <div class="container">
+        <ul class="responsive-table">
+          {% if proyectos %}
+              {% for upr in proyectos %}
+              <li class="table-header">
+                  <a href="{% url 'items-por-proyecto' project_id=upr.project.id %}">
+                      <div class="col col-1">{{upr.project.name}}</div>
+                  </a>
+              </li>
+              {% endfor %}
+          {% else %}
+          <li class="table-header">
+              <div>No esta asociado a proyectos</div>
+          </li>
+          {% endif %}
+        </ul>
+    </div>
+
+      <script src="{% static 'JS/PerfilUsuario.js' %}"></script>
+      <script src="{% static 'JS/DibujarInicialNombre.js' %}"></script>
+</body>
+</html>

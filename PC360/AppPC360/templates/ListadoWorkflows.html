@@ -1,0 +1,119 @@
+{% extends "BaseListado.html" %}
+
+{% block styles %}
+    {{ block.super }}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Css/StyleListadoWorkflows.css' %}">
+{% endblock %}
+
+{%block title%}Workflows{%endblock%}
+
+
+{% block header %}Workflows{% endblock %}
+
+{% block user_content %} {{username}} {% endblock %}
+
+{% block btn-content%}Crear workflow{%endblock%}
+
+
+{% block modal-content-1 %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="id_nombre_workflow" class="lbl-name-we">Nombre del workflow</label>
+        <input type="text" placeholder="Ej: workflow" id="nombre_workflow" name="nombre_workflow">
+        <p class="error-message-name" id="error-name"></p>
+        
+        <label for="" class="lbl-name-we">Nombre del estado</label>
+        <input type="text" placeholder="Nombre del estado" id="nombre" name="nombre_estado">
+        <button type="button" class="btn-state" id="agregar_estado"> Agregar estado</button>
+        <p class="error-message-states" id="error-states"></p>
+        <button type="button" class="btn-view-states" id="btn-states">Ver estados</button>
+        <div class="states" id="states">
+            <ul>
+        
+            </ul>
+        </div>
+        
+        <button class="btn-create" type="button" id="confirmarWorkflow">Crear workflow</button>
+    </form>
+    
+    <script src="../static/JS/ListadoDeEstados.js"></script>
+    <script src="../static/JS/AgregarEstadosListado.js"></script>
+    <script src="../static/JS/EnviarDatosWorkflow.js"></script>
+    
+{% endblock %}
+
+{% block list %}
+    {% if workflows %}
+        {% for workflow in workflows %}
+        <tr>
+            <td class="workflow-name">{{ workflow.name }}</td>
+            <td>
+                <i class="fa-solid fa-pencil btn-pencil" data-id="{{ workflow.id }}"></i>
+                <i class="fa-solid fa-trash-can btn-delete" data-id="{{ workflow.id }}"></i>
+            </td>
+        </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td colspan="2">No hay workflows</td>
+        </tr>
+    {% endif %}
+{% endblock %}
+
+{% block modal-content-2 %}
+<label for="" class="lbl-name-we">Nombre del workflow:</label>
+<input type="text" id="nombreWorkflow">
+<button type="button" class="add-state" id="add-state">Agregar estado</button>
+<div class="container-select">
+    <div class="select-btn" >
+        <span class="btn-text">Estados</span>
+        <span class="arrow-dwn" id="show-users-3">
+            <i class="fa-solid fa-chevron-down"></i>
+        </span>
+    </div>
+  
+    <ul class="list-items-2" id="user-list-3">
+        <!-- Se crean los elementos de forma dinamica -->
+    </ul>
+</div>
+<button type="submit" class="btn-update-workflow" id="ActualizarWorkflow">Guardar cambios</button>
+
+<!-- Contenido del modal para agregar un estado -->
+<div class="modal-update-state" id="modal-update-state-1">
+    <div class="modal-content-state">
+        <label for="" class="lbl-name-we">Nombre del estado:</label>
+        <input type="text" id="new-state">
+        <button type="button" class="btn-save-state" onclick="agregarEstado()">Guardar</button>
+    </div>
+</div>
+
+<!-- Contenido del modal para modificar un estado -->
+<div class="modal-update-state" id="modal-update-state-2">
+    <div class="modal-content-state">
+        <label for="" class="lbl-name-we">Nombre estado:</label>
+        <input type="text" placeholder="Ej:modificado" id="name-state-update">
+        <button type="button" class="btn-save-state" id="update-state">Guardar</button>
+    </div>
+</div>
+
+<script src="../static/JS/MostrarEstadosAsignados.js"></script>
+<script src="../static/JS/ModalActualizarEstado.js"></script>
+<script src="../static/JS/ModalAgregarEstado.js"></script>
+<script src="../static/JS/ObtenerEstadosAsignados.js"></script>
+<script src="../static/JS/AgregarEstado.js"></script>
+<script src="../static/JS/BorrarEstadoListado.js"></script>
+<script src="../static/JS/ActualizarEstado.js"></script>
+<script src="../static/JS/EnviarActualizacionWorkflow.js"></script>
+{% endblock %}
+
+{% block modal-option%}
+<p class="name-modal-delete"></p>
+<div class="container-button">
+    <button class="btn-trash">Eliminar</button>
+    <button class="btn-cancel" id="btn-cancel">Cancelar</button>
+</div>
+<script src="../static/JS/CargarModalEliminarWorkflow.js"></script>
+<script src="../static/JS/EnviarEliminarWorkflow.js"></script>
+<script src="../static/JS/ModalEliminar.js"></script>
+{% endblock %}

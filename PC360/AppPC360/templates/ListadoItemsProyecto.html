@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b2985c5115.js" crossorigin="anonymous"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Css/StyleListadoItems.css' %}">
+    <title>Items</title>
+</head>
+<body>
+    <header>
+        <a href="{% url 'proyectos-rol-user' rol=rol %}"><i class="fa-solid fa-arrow-left-long arrow-back"></i></a>
+        <h2>Items del proyecto: {{ proyecto }}</h2>
+        <div class="action">
+            <div class="profile" id="profile">
+                
+            </div>
+            <div class="menu">
+                <h3>
+                    Cuenta de usuario
+                    <div id="user-content">{{ username }}</div>
+                </h3>
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-right-from-bracket icon-size logout"></i>
+                        <a href="{% url 'cerrar-sesion' %}">Salir</a>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="table-container">
+        <div class="container-buttons">
+            <button type="button" class="button-add" id="abrirModalItem">Crear Item</button>
+            
+            <div class="container-buttons-items">
+                <button class="button-item" data-target="table-1">Items creados</button>
+                <button class="button-item" data-target="table-2">Items asignados</button>
+                <button class="button-item" data-target="table-3">Items terminados</button>
+            </div>
+
+            {% if rol == "Lider Funcional" or rol == "Lider Tecnico" %}
+            <button class="change-content" id="cambiarContenido">Todos los items</button>
+            <button class="filter-items" id="btnFiltrar">Filtrar Item terminados</button>
+            <div class="container-filter" id="container-filter">
+                <span class="option-filter">Todos</span>
+                <hr>
+                <span class="option-filter">Por terminar</span>
+                <hr>
+                <span class="option-filter">Terminados</span>
+            </div>
+            {% endif %}
+
+            
+        </div>
+        
+        <table class="container table-oculta active" id="table-1">
+        <thead>
+            <tr>
+                <th><h1>Nombre</h1></th>
+                <th><h1>Descripcion</h1></th>
+                <th><h1>Tipo</h1></th>
+                <th><h1>Prioridad</h1></th>
+                <th><h1>Estado actual</h1></th>
+                <th><h1>Opciones</h1></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if items_creados %}
+                {% for item_creado in items_creados %}
+                    <tr>
+                        <td>{{ item_creado.name }}</td>
+                        <td class="td-2">
+                            <button class="btn-show" data-id="{{ item_creado.id }}">Ver</button>
+                            <div class="hidden-text" id="hidden-text-{{ item_creado.id }}">
+                                {{ item_creado.description }}
+                            </div>
+                        </td>
+                        <td>{{ item_creado.type_Of_Item.name }}</td>
+                        <td>{{ item_creado.priority }}</td>
+                        <td>{{ item_creado.state }}</td>
+                        <td>
+                            <i class="fa-solid fa-pencil btn-pencil-1" data-id="{{ item_creado.id }}"></i>
+                            <i class="fa-solid fa-trash-can btn-delete-1" data-id="{{ item_creado.id }}"></i>
+                            <i class="fa-solid fa-eye btn-show-activity" data-id="{{ item_creado.id }}"></i>
+                            
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="6">No tiene items creados</td>
+                </tr>
+            {% endif %}    
+        </tbody>
+        </table>
+        <table class="container table-oculta" id="table-2">
+            <thead>
+                <tr>
+                    <th><h1>Nombre</h1></th>
+                    <th><h1>Descripcion</h1></th>
+                    <th><h1>Tipo</h1></th>
+                    <th><h1>Prioridad</h1></th>
+                    <th><h1>Estado actual</h1></th>
+                    <th><h1>Opciones</h1></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if items_asignados %}
+                    {% for item_asignado in items_asignados %}
+                        <tr>
+                            <td>{{ item_asignado.name }}</td>
+                            <td>
+                                <button class="btn-show" data-id="{{ item_asignado.id }}">Ver</button>
+                                <div class="hidden-text" id="hidden-text-{{ item_asignado.id }}">
+                                    {{ item_asignado.description }}
+                                </div>
+                            </td>
+                            <td>{{ item_asignado.type_Of_Item.name }}</td>
+                            <td>{{ item_asignado.priority }}</td>
+                            <td>{{ item_asignado.state }}</td>
+                            <td>
+                                <i class="fa-solid fa-pencil btn-pencil-1" data-id="{{ item_asignado.id }}"></i>
+                                <i class="fa-solid fa-eye btn-show-activity" data-id="{{ item_asignado.id }}"></i>
+                                <i class="fa-solid fa-circle-check btn-check" data-id="{{ item_asignado.id }}"></i>
+                            </td>
+                        </tr>
+                    {% endfor %}    
+                {% else %}
+                    <tr>
+                        <td colspan="6">No tiene items asignados</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+        
+        <table class="container table-oculta" id="table-3">
+            <thead>
+                <tr>
+                    <th><h1>Nombre</h1></th>
+                    <th><h1>Descripcion</h1></th>
+                    <th><h1>Tipo</h1></th>
+                    <th><h1>Prioridad</h1></th>
+                    <th><h1>Estado actual</h1></th>
+                    <th><h1>Opciones</h1></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if items_completados %}
+                    {% for item_completado in items_completados %}
+                        <tr>
+                            <td>{{ item_completado.name }}</td>
+                            <td>
+                                <button class="btn-show" data-id="{{ item_completado.id }}">Ver</button>
+                                <div class="hidden-text" id="hidden-text-{{ item_completado.id }}">
+                                    {{ item_completado.description }}
+                                </div>
+                            </td>
+                            <td>{{ item_completado.type_Of_Item.name }}</td>
+                            <td>{{ item_completado.priority }}</td>
+                            <td>{{ item_completado.state }}</td>
+                            <td>
+                                <i class="fa-solid fa-eye btn-show-activity" data-id="{{ item_completado.id }}"></i>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="6">No tiene items terminados</td>
+                    </tr>
+                {% endif %} 
+            </tbody>
+        </table>
+    </div>
+    
+
+    <div id="modal" class="modal">
+        <div class="modal-contenido modal-color-1">
+            {% csrf_token %}
+                <label for="nombre" class="lbl-name-mi">Nombre:</label>
+                <input type="text" id="name-item" name="nombre" class="name-item" required>
+                <p id="error-name" class="error-message"></p>
+
+                <label for="" class="lbl-name-mi">Descripcion:</label>
+                <textarea name="" id="description" cols="30" rows="5"></textarea>
+
+                <label for="tipo" class="lbl-name-mi">Tipo:</label>
+                <select id="select-tipo" name="tipo" class="select-modal">
+                    <option value="" disabled selected>Seleccionar</option>
+                    {% for tipo in tipos %}
+                        <option value="{{ tipo.id }}">{{ tipo.name }}</option>
+                    {% endfor %}    
+                </select>
+                <p id="error-type" class="error-message"></p>
+
+                <label for="prioridad" class="lbl-name-mi">Prioridad:</label>
+                <select id="select-prioridad" name="tipo" class="select-modal">
+                    <option value="" disabled selected>Seleccionar</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Media">Media</option>
+                    <option value="Baja">Baja</option>
+                </select>
+                <p id="error-priority" class="error-message"></p>
+
+                <button type="button" class="btn-add-item" id="CrearItem">Agregar</button>
+            
+        </div>
+    </div>
+    <div class="modal" id="modal-update">
+        <div class="modal-contenido modal-color-2">
+            {% csrf_token %}
+            <label for="nombre" class="lbl-name-mi">Nombre:</label>
+            <input type="text" id="name-item-update" name="nombre" class="name-item" required>
+            
+            <label for="" class="lbl-name-mi">Descripcion:</label>
+            <textarea name="" id="description-2" cols="30" rows="5"></textarea>
+
+
+            <label for="tipo" class="lbl-name-mi">Tipo:</label>
+            <select id="select-tipo-update" name="tipo" class="select-modal">
+                <option value="" disabled selected>Seleccionar</option>
+                {% for tipo in tipos %}
+                    <option value="{{ tipo.id }}">{{ tipo.name }}</option>
+                {% endfor %}    
+            </select>
+
+            <label for="prioridad" class="lbl-name-mi">Prioridad:</label>
+            <select id="select-prioridad-update" name="tipo" class="select-modal">
+                <option value="" disabled selected>Seleccionar</option>
+                <option value="Alta">Alta</option>
+                <option value="Media">Media</option>
+                <option value="Baja">Baja</option>
+            </select>
+
+            <button type="button" class="btn-add-item" id="ActualizarItem">Modificar</button>
+        </div>
+    </div>
+   
+
+    <div class="modal-delete" id="modal-delete-item">
+        <div class="modal-content-delete">
+            <p class="name-modal">¿Seguro quiere eliminar el item?</p>
+            <div class="container-buttons">
+                <button class="btn-trash-1" id="delete-item">Eliminar</button>
+                <button class="btn-cancel-1" id="btn-cancel-1">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-activity" id="modal-activity">
+        <div><h3>Actividad del item</h3></div>
+        <hr>
+        <div class="container-activity" id="activities">
+            <!-- Se crean los elementos de forma dinamica -->
+        </div>
+    </div>
+    
+    <div class="modal-responsible" id="modal-responsible">
+        <div class="content-responsible">
+            <label for="" class="lbl-name-mi">Asignar responsable:</label>
+            <select name="" id="select-users" class="select-modal-1">
+            </select>
+            <label for="" class="lbl-name-mi">Elegir estado:</label>
+            <select name="" id="select-states" class="select-modal-1">
+            </select>
+            <button type="button" class="btn-confirm" id="asign-responsible">Confirmar</button>
+        </div>
+    </div>
+
+    <div class="modal-complete-item" id="modal-complete-item">
+        <div class="content-complete-item">
+            <p class="name-modal">¿Termino con el item?</p>
+            <div class="container-buttons">
+                <button class="btn-confirmation" id="btn-confirmation">Confirmar</button>
+                <button class="btn-cancel-1" id="btn-cancel-confirmation">Cancelar</button>
+        </div>
+    </div>
+
+    <script src="../static/JS/ModalCrearItem.js"></script>
+    <script src="../static/JS/BarraBotones.js"></script>
+    <script src="../static/JS/AgregarItem.js"></script>
+    <script src="../static/JS/ModalActualizarItem.js"></script>
+    <script src="../static/JS/EnviarActualizacionItem.js"></script>
+    <script src="../static/JS/ModalEliminarItem.js"></script>
+    <script src="../static/JS/MostrarModalActividad.js"></script>
+    <script src="../static/JS/CargarActividadItem.js"></script>
+    <script src="../static/JS/AlternarContenidoTablas.js"></script>
+    <script src="../static/JS/ObtenerDatosItem.js"></script>
+    <script src="../static/JS/ModalAsignarResponsable.js"></script>
+    <script src="../static/JS/ModalConfirmacionItem.js"></script>
+    <script src="../static/JS/CargarDatosResponsable.js"></script>
+    <script src="../static/JS/AsignarResponsable.js"></script>
+    <script src="../static/JS/EstadoCompletado.js"></script>
+    <script src="../static/JS/EnviarEliminarItem.js"></script>
+    <script src="../static/JS/Filtros.js"></script>
+    <script src="../static/JS/PerfilUsuario.js"></script>
+    <script src="../static/JS/DibujarInicialNombre.js"></script>
+    <script src="../static/JS/ModalDescripcion.js"></script>
+    <script src="../static/JS/MenuFiltros.js"></script>
+    <script src="../static/JS/DeshabilitarElementos.js"></script>
+</body>
+</html>
